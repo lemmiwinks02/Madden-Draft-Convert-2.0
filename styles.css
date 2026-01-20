@@ -1,0 +1,186 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0f0f23, #1a1a3d);
+    color: #e0e0ff;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    position: relative; /* For absolute positioning of logos */
+    overflow-x: hidden;
+}
+
+/* Subtle football field texture overlay – blends logos better */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/000/128/365/small/vector-football-texture-overlay-on-white-background.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.08; /* Very faint – adjust 0.05–0.12 as preferred */
+    pointer-events: none;
+    z-index: -2;
+}
+
+.container {
+    max-width: 480px;
+    margin: 40px auto 20px; /* Reduced top margin since logos are floating */
+    background: rgba(30, 30, 60, 0.92);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(100, 100, 255, 0.18);
+    position: relative;
+    z-index: 1;
+}
+
+/* Floating team logos – now blend and don't push content */
+.logo-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0; /* Takes no vertical space */
+    z-index: 0;
+    pointer-events: none;
+}
+
+.team-logo {
+    position: absolute;
+    height: 110px; /* Slightly larger for impact, but blended */
+    width: auto;
+    object-fit: contain;
+    opacity: 0.65; /* Key: makes them blend into background */
+    filter: brightness(0.9) contrast(1.1); /* Slight pop without harsh edges */
+    transition: opacity 0.4s ease;
+}
+
+.team-logo:hover {
+    opacity: 0.9;
+    transform: scale(1.08);
+}
+
+/* Positioning */
+.left   { left: 5%;  top: -20px; }  /* Vikings slightly left-up */
+.center { left: 50%; top: -35px; transform: translateX(-50%); } /* Bears centered higher */
+.right  { right: 5%; top: -20px; }  /* Lions slightly right-up */
+
+/* Rest of your styles (h1, inputs, buttons, etc.) – unchanged except minor tweaks */
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    margin: 10px 0 20px;
+    font-size: 2.2rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    position: relative;
+    z-index: 2;
+}
+
+p {
+    text-align: center;
+    color: #b0b0ff;
+    margin: 0 0 30px;
+}
+
+.input-section {
+    margin: 20px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #c0c0ff;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    background: #2a2a4a;
+    color: white;
+    border: 1px solid #5a5aff;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.dropdowns {
+    display: flex;
+    gap: 15px;
+}
+
+.dropdowns select {
+    flex: 1;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+button {
+    flex: 1;
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button {
+    background: linear-gradient(90deg, #4f46e5, #7c3aed);
+    color: white;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #4338ca, #6d28d9);
+    transform: translateY(-2px);
+}
+
+.clear-btn {
+    background: linear-gradient(90deg, #6b7280, #9ca3af);
+}
+
+.clear-btn:hover {
+    background: linear-gradient(90deg, #4b5563, #6b7280);
+    transform: translateY(-2px);
+}
+
+.output-box {
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(40, 40, 80, 0.7);
+    border-radius: 12px;
+    border: 1px solid #5a5aff;
+    text-align: center;
+}
+
+.output-box p {
+    margin: 10px 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.error {
+    color: #ff6b6b !important;
+    font-weight: bold;
+}
+
+/* Mobile – stack logos vertically if screen is very narrow */
+@media (max-width: 500px) {
+    .team-logo {
+        height: 80px;
+    }
+    .left   { left: 10%; top: -10px; }
+    .center { left: 50%; top: -25px; }
+    .right  { right: 10%; top: -10px; }
+}

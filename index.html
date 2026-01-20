@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madden NFL Draft Pick Converter</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Logo Header -->
+        <div class="logo-header">
+            <img src="https://content.sportslogos.net/logos/7/172/full/2387_minnesota_vikings-primary_dark-2013.png" 
+                 alt="Minnesota Vikings Logo" class="team-logo left">
+            <img src="https://content.sportslogos.net/logos/7/169/full/chicago_bears_logo_primary_dark_2023_sportslogosnet-5305.png" 
+                 alt="Chicago Bears Logo" class="team-logo center">
+            <img src="https://content.sportslogos.net/logos/7/170/full/detroit_lions_logo_primary_dark_20172667.png" 
+                 alt="Detroit Lions Logo" class="team-logo right">
+        </div>
+
+        <h1>Madden NFL Draft Pick Converter</h1>
+        <p>Quickly convert between overall picks (1–224) and round/pick format. Perfect for Madden online draft boards!</p>
+        
+        <div class="input-section">
+            <label for="overall">Overall Pick:</label>
+            <input type="number" id="overall" min="1" max="224" placeholder="e.g., 151" autofocus>
+        </div>
+
+        <div class="input-section">
+            <label>Round and Pick:</label>
+            <div class="dropdowns">
+                <select id="round">
+                    <option value="">Select Round</option>
+                </select>
+                <select id="pick">
+                    <option value="">Select Pick</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button onclick="convertPick()">Convert</button>
+            <button onclick="clearAll()" class="clear-btn">Clear All</button>
+        </div>
+
+        <div id="output" class="output-box"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
